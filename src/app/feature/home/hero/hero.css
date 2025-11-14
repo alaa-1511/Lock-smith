@@ -1,0 +1,28 @@
+
+
+
+:host ::ng-deep .owl-dot span {
+  width: 14px;
+  height: 14px;
+
+    transform: translateY(-40px);
+
+
+
+}
+
+:host ::ng-deep .owl-dots .owl-dot:nth-child(n+3) {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+

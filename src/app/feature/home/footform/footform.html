@@ -1,0 +1,876 @@
+
+
+<section class="relative min-h-screen bg-[url('/form.jpg')] bg-cover bg-center flex items-center justify-center p-4">
+
+  <div class="absolute inset-0 bg-black/70"></div>
+
+
+  <div class="relative z-10 w-full max-w-lg bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-4 text-white">
+    <h2 class="text-2xl font-semibold text-center mb-1 text-white">Get Help Now</h2>
+
+    <form class="space-y-2  "  data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500"  [formGroup]="forminit" (ngSubmit)="onSubmit()"  >
+
+
+<!-- Name -->
+
+  <div class="  ">
+     @let controlName =forminit.get('name');
+    <label class=" pb-1 block text-white font-semibold text-base ">Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Enter your Name"
+      class=" placeholder:text-white border-white bg-transparent mb-1 py-3 focus:border-primary w-full outline-0 focus:ring-0 rounded-lg  shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 focus:outline-none  "
+    />
+
+    @if (controlName?.errors && controlName?.touched ) {
+      <div
+        class="flex p-4   text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlName?.getError('required')) {
+              <li>The name is required</li>
+            }
+            @if( controlName?.getError('minlength')) {
+              <li>The name must be at least 3 characters long.</li>
+            }
+            @if( controlName?.getError('maxlength')) {
+              <li>Please enter a password between 3 and 20 characters.</li>            }
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+
+<!-- Service -->
+<div class="">
+  @let controlservice = forminit.get('service');
+  <label class="pb-1 block text-white font-semibold text-base">Service</label>
+
+  <div class="relative">
+    <!-- Main Button -->
+    <button
+      id="mainDropdownBtn"
+      data-dropdown-toggle="mainDropdown"
+      class="inline-flex items-center justify-between mb-1 w-full text-sm font-medium bg-transparent text-white px-4 py-3 border border-white rounded-lg shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 focus:outline-none focus:border-primary"
+      type="button"
+    >
+      {{ selectedService() || 'Choose Service' }}
+      <svg
+        class="w-4 h-4 ml-2 transition-transform duration-300"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
+      </svg>
+    </button>
+
+    <!-- Main Dropdown -->
+    <div
+      id="mainDropdown"
+      class="hidden absolute z-20 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-xl transition-all duration-300"
+    >
+      <ul class="p-2 text-sm text-gray-700 font-medium">
+
+        <!-- Item 1 -->
+        <li class="relative">
+          <button
+            data-dropdown-toggle="subDropdown1"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            Automotive Locksmi Service
+            <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown1"
+            class="hidden absolute top-0 left-full ml-2 w-70 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a (click)="selectService('Digital Door Locks')" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Digital Door Locks </a></li>
+              <li><a (click)="selectService('Lock installation')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Lock installation </a></li>
+              <li><a (click)="selectService('Key Extraction')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Key Extraction </a></li>
+              <li><a (click)="selectService('Electronic Door Lock')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Electronic Door Lock </a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Item 2 -->
+        <li class="relative">
+          <button
+            data-dropdown-toggle="subDropdown2"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+              Resdintail Locksmith service
+            <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown2"
+            class="hidden absolute top-0 left-full ml-2 w-70 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a (click)="selectService('Car Locksmith')" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Car Locksmith</a></li>
+
+            </ul>
+          </div>
+        </li>
+        <!-- Item 3 -->
+        <li class="relative">
+          <button
+            data-dropdown-toggle="subDropdown3"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            Commercial Locksmith Service
+            <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown3"
+            class="hidden absolute top-0 left-full ml-2 w-70 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a (click)="selectService('commercial Lock Replacement')" class="block px-6 py-2 hover:bg-gray-100 rounded-md"> commercial Lock Replacement </a></li>
+              <li><a (click)="selectService('Rekey Lock')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Rekey Lock </a></li>
+              <li><a (click)="selectService('Locksmith')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Locksmith </a></li>
+            </ul>
+          </div>
+        </li>
+        <!-- Item 4 -->
+        <li class="relative">
+          <button
+            data-dropdown-toggle="subDropdown4"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            24/7 Emergency Locksmith Service
+            <svg class="h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown4"
+            class="hidden absolute top-0 left-full ml-2 w-70 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a (click)="selectService('Emergency Lockouts')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Emergency Lockouts </a></li>
+              <li><a (click)="selectService('Lock Out Of Car')" class="block px-4 py-2 hover:bg-gray-100 rounded-md"> Lock Out Of Car </a></li>
+
+            </ul>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  @if (controlservice?.errors && controlservice?.touched ) {
+    <div class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50" role="alert">
+      <svg class="shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+          1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+          0 2Z"
+        />
+      </svg>
+      <div>
+        <ul class="mt-1.5 list-disc list-inside">
+          @if( controlservice?.getError('required')) {
+            <li>The Choose Service is required</li>
+          }
+        </ul>
+      </div>
+    </div>
+  }
+</div>
+
+
+<!-- <div class="">
+  @let controlservice =forminit.get('service');
+  <label class="pb-1 block text-white font-semibold text-base">Service</label>
+
+  <div class="relative">
+
+    <button
+      id="mainDropdownBtn"
+      data-dropdown-toggle="mainDropdown"
+      class="inline-flex items-center justify-between w-full text-sm font-medium bg-transparent  text-white px-4 py-3 border border-white rounded-lg shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-300 focus:outline-none  focus:border-primary"
+      type="button"
+    >
+      Choose Service
+      <svg
+        class="w-4 h-4 ml-2 transition-transform duration-300 group-data-[open=true]:rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
+      </svg>
+    </button>
+
+
+    <div
+      id="mainDropdown"
+      class="hidden absolute z-20 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-xl transition-all duration-300 animate-fadeIn"
+    >
+      <ul class="p-2 text-sm text-gray-700 font-medium">
+
+        <li class="relative group">
+          <button
+            id="subDropdownBtn1"
+            data-dropdown-toggle="subDropdown1"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            Web Development
+            <svg
+              class="h-4 w-4 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown1"
+            class="hidden absolute top-0 left-full ml-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300 animate-fadeIn"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Frontend</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Backend</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Fullstack</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="relative group">
+          <button
+            id="subDropdownBtn2"
+            data-dropdown-toggle="subDropdown2"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            Mobile Apps
+            <svg
+              class="h-4 w-4 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown2"
+            class="hidden absolute top-0 left-full ml-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300 animate-fadeIn"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">iOS</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Android</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Flutter</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="relative group">
+          <button
+            id="subDropdownBtn3"
+            data-dropdown-toggle="subDropdown3"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            Graphic Design
+            <svg
+              class="h-4 w-4 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown3"
+            class="hidden absolute top-0 left-full ml-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300 animate-fadeIn"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Logo Design</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">UI/UX</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Branding</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="relative group">
+          <button
+            id="subDropdownBtn4"
+            data-dropdown-toggle="subDropdown4"
+            data-dropdown-placement="right-start"
+            type="button"
+            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 rounded-md transition-all"
+          >
+            Graphic Design
+            <svg
+              class="h-4 w-4 text-gray-500"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9 5 7 7-7 7" />
+            </svg>
+          </button>
+
+          <div
+            id="subDropdown4"
+            class="hidden absolute top-0 left-full ml-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-300 animate-fadeIn"
+          >
+            <ul class="p-2 text-sm text-gray-700">
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Logo Design</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">UI/UX</a></li>
+              <li><a href="#" class="block px-4 py-2 hover:bg-gray-100 rounded-md">Branding</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+ @if (controlservice?.errors && controlservice?.touched ) {
+      <div
+        class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlservice?.getError('required')) {
+              <li>The Choose Service is required</li>
+            }
+
+
+          </ul>
+        </div>
+      </div>
+    }
+
+</div> -->
+<!-- address  -->
+
+<div class="">
+  @let controlAddress = forminit.get('address');
+  <label class="block text-white font-medium mb-2">Address</label>
+
+  <div class="relative">
+    <input
+      type="address"
+      formControlName="address"
+      placeholder="Enter your address"
+      class="w-full px-4 py-3 rounded-xl border border-gray-300 bg-transparent
+             text-white
+               focus:border-primary
+              ease-in-out shadow-sm hover:shadow-lg hover:scale-[1.01] mb-1 transition-all duration-300 focus:outline-none placeholder:text-white  "
+    />
+
+
+  </div>
+
+  @if (controlAddress?.errors && controlAddress?.touched) {
+    <div
+        class="flex p-4  text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlAddress?.getError('required')) {
+              <li>The Addrees is required</li>
+            }
+
+
+          </ul>
+        </div>
+      </div>
+  }
+</div>
+<!-- phone -->
+
+   <div class="  ">
+     @let controlPhone =forminit.get('phone');
+    <label class="pb-2 block text-white font-semibold text-base  ">Phone</label>
+   <input
+  type="tel"
+  formControlName="phone"
+  placeholder="Enter your phone"
+  class="placeholder:text-white py-3 mb-1 border-white bg-transparent
+  focus:border-primary w-full outline-0 focus:ring-0 rounded-lg shadow-md
+  hover:shadow-lg hover:scale-[1.01] transition-all duration-300
+  focus:outline-none"
+/>
+
+
+    @if (controlPhone?.errors && controlPhone?.touched ) {
+      <div
+        class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlPhone?.getError('required')) {
+              <li>The Phone is required</li>
+            }
+            @if( controlPhone?.getError('pattern')) {
+              <li> Invalid US number! Please enter like: +1 (555) 123-4567 🇺🇸.</li>
+            }
+
+          </ul>
+        </div>
+      </div>
+    }
+</div>
+<!-- message -->
+ <div class="  ">
+@let controlmessage =forminit.get('message');
+    <label class="pb-2 block text-white font-semibold text-base  ">Message</label>
+   <textarea rows="3"
+
+  formControlName="message"
+  placeholder="Enter your Message"
+  class="placeholder:text-white py-3 mb-1 border-white bg-transparent
+  focus:border-primary w-full outline-0 focus:ring-0 rounded-lg shadow-md
+  hover:shadow-lg hover:scale-[1.01] transition-all duration-300
+  focus:outline-none"
+></textarea>
+
+
+    @if (controlmessage?.errors && controlmessage?.touched ) {
+      <div
+        class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlmessage?.getError('required')) {
+              <li>The Phone is required</li>
+            }
+
+
+          </ul>
+        </div>
+      </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+ <button
+        class="w-full bg-primary text-white font-semibold py-3 rounded-xl hover:bg-primary2 transition-all duration-300 shadow-md">
+        Get Help Now
+      </button>
+    </form>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <section class="sm:min-h-screen   z-40 relative  pb-5 "  >
+  <div class="overlay"></div>
+  <div class="max-w-6xl mx-auto z-10   relative">
+  <div class=" grid lg:grid-cols-2 mg:grid-cols-1  gap-8" >
+
+
+<div class="flex flex-col items-center text-center
+            lg:items-start lg:text-left
+            lg:pt-40 pt-5 px-4
+            min-h-[300px] lg:min-h-0
+            justify-center lg:justify-start">
+
+  <span
+    class="text-white text-2xl flex justify-center items-center
+           w-[65px] h-[65px] bg-backgroundfour rounded-full mb-6"
+  >
+    <i class="fas fa-message"></i>
+  </span>
+
+  <h1 class="text-white text-3xl font-medium mb-4">
+    Get Instant Locksmith Assistance Anytime, Anywhere!
+  </h1>
+
+  <p class="text-white mb-4 max-w-2xl">
+    Locked out or need a new key? Our expert locksmiths are ready to help 24/7 with fast, reliable,
+    and damage-free service — all at transparent prices you can trust.
+  </p>
+</div>
+
+
+    <div class=" bg-white px-4 py-3 lg:mt-15 -mt-5 rounded-lg " >
+<form [formGroup]="forminit" (ngSubmit)="onSubmit()" >
+
+
+
+  <div class=" col-span-6 ">
+     @let controlName =forminit.get('name');
+    <label class="pb-3">Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      class="border-background focus:border-primary w-full mb-3 outline-0 focus:ring-0 rounded-lg"
+    />
+
+    @if (controlName?.errors && controlName?.touched ) {
+      <div
+        class="flex p-4 mb-4  text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlName?.getError('required')) {
+              <li>The name is required</li>
+            }
+            @if( controlName?.getError('minlength')) {
+              <li>The name must be at least 3 characters long.</li>
+            }
+            @if( controlName?.getError('maxlength')) {
+              <li>Please enter a password between 3 and 20 characters.</li>            }
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+
+
+
+  <div class=" col-span-6  ">
+     @let controlEmail =forminit.get('email');
+    <label class="pb-3">Email</label>
+    <input
+      type="email"
+      formControlName="email"
+      class="border-background focus:border-primary w-full mb-3 outline-0 focus:ring-0 rounded-lg"
+    />
+
+    @if (controlEmail?.errors && controlEmail?.touched ) {
+      <div
+        class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div >
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlEmail?.getError('required')) {
+              <li>The Email is required</li>
+            }
+            @if( controlEmail?.getError('email')) {
+              <li>Please enter a valid email address.</li>
+            }
+
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+
+
+
+<div class="col-span-6">
+  @let controlPassword = forminit.get('password');
+
+  <label class="pb-3 block">Password</label>
+
+  <div class="relative">
+    <input
+      [type]="flag() ? 'text' : 'password'"
+      formControlName="password"
+      class="border-background focus:border-primary w-full mb-3 outline-0 focus:ring-0 rounded-lg pr-10"
+    />
+
+    <span
+      (click)="flag.set(!flag())"
+      class="absolute top-5 end-4 -translate-y-1/2 cursor-pointer text-primary"
+    >
+      <i class="fa-solid" [ngClass]="flag() ? 'fa-eye-slash' : 'fa-eye'"></i>
+    </span>
+  </div>
+
+  @if (controlPassword?.errors && controlPassword?.touched) {
+    <div
+      class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50"
+      role="alert"
+    >
+      <svg
+        class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+        />
+      </svg>
+
+      <div>
+        <ul class="mt-1.5 list-disc list-inside">
+          @if (controlPassword?.getError('required')) {
+            <li>The Password is required</li>
+          }
+          @if (controlPassword?.getError('pattern')) {
+            <li>
+              Password must be at least 7 characters, contain at least one letter and one number.
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  }
+</div>
+
+
+
+
+
+   <div class=" col-span-6 ">
+     @let controlPhone =forminit.get('phone');
+    <label class="pb-3">Phone</label>
+    <input
+      type="text"
+      formControlName="phone"
+      class="border-background focus:border-primary w-full mb-3 outline-0 focus:ring-0 rounded-lg" placeholder=""
+    />
+
+    @if (controlPhone?.errors && controlPhone?.touched ) {
+      <div
+        class="flex p-4 mb-4 text-sm text-primary rounded-lg bg-gray-50"
+        role="alert"
+      >
+        <svg
+          class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+        >
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3
+            1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1
+            0 2Z"
+          />
+        </svg>
+
+        <div>
+          <ul class="mt-1.5 list-disc list-inside">
+            @if( controlPhone?.getError('required')) {
+              <li>The Phone is required</li>
+            }
+            @if( controlPhone?.getError('pattern')) {
+              <li> Invalid US number! Please enter like: +1 (555) 123-4567 🇺🇸.</li>
+            }
+
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <button type="submit" class="bg-primary text-white  w-full py-3 rounded-lg col-span-12 ">
+    Get Help Now
+  </button>
+</form>
+
+
+
+  </div>
+
+  </div>
+  </div>
+
+</section> -->
+
