@@ -1,0 +1,10 @@
+
+
+
+.decor-line .line {
+  position: relative;
+  height: 2px;
+  width: 120px;
+  background-color: var(--color-primary);
+}
+

@@ -1,0 +1,5 @@
+
+:host ::ng-deep .owl-dots .owl-dot:nth-child(n+3) {
+  display: none !important;
+}
+

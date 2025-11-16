@@ -1,0 +1,155 @@
+
+
+
+
+
+
+
+
+
+<nav class="bg-neutral-primary fixed w-full z-30  bg-white top-0 start-0 border-b border-gray-100 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-0">
+    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="/logo.png" class="h-15" alt="Flowbite Logo" />
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button data-collapse-toggle="navbar-default" type="button"
+      class="inline-flex items-center p-0 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-primary focus:outline-none focus:ring-primary"
+      aria-controls="navbar-default" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+        viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
+      </svg>
+    </button>
+
+    <!-- MENU -->
+    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+      <ul
+        class="font-medium flex flex-col me-6 p-4 md:p-0 mt-0 rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+
+        <li>
+          <a (click)="scrollTo('hero')" [class.active-link]="activeSection() === 'hero'"
+            class="block pt-3 px-3 text-sm hover:text-primary text-textblack md:p-0 cursor-pointer">Home</a>
+        </li>
+
+        <li>
+          <a (click)="scrollTo('location')" [class.active-link]="activeSection() === 'location'"
+            class="block py-2 px-3 text-sm md:p-0 hover:text-primary text-textblack cursor-pointer">About Us</a>
+        </li>
+
+        <li>
+          <a (click)="scrollTo('ourservice')" [class.active-link]="activeSection() === 'ourservice'"
+            class="block py-2 px-3 text-sm md:p-0 hover:text-primary text-textblack cursor-pointer">Service</a>
+        </li>
+
+        <li>
+          <a (click)="scrollTo('frequently')" [class.active-link]="activeSection() === 'frequently'"
+            class="block py-2 px-3 text-sm md:p-0 hover:text-primary text-textblack cursor-pointer">faq's</a>
+        </li>
+      </ul>
+
+
+      <div class="flex md:space-x-3  space-x-1 rtl:space-x-reverse items-center justify-center mb-4 md:hidden">
+
+        <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white shadow-md">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white shadow-md">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+        <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white shadow-md">
+          <i class="fa-brands fa-yelp"></i>
+        </a>
+
+        <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-primary text-white shadow-md">
+          <i class="fa-solid fa-thumbtack"></i>
+        </a>
+
+        <a href="#"
+          class="flex items-center justify-center px-4 h-9 rounded-full bg-primary text-white shadow-md">
+          <i class="fa-solid fa-phone"></i>
+          <span class="ms-2">+1 (317) 943-9599</span>
+        </a>
+
+      </div>
+
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <nav class="bg-neutral-primary mt-15    border-b border-gray-100 hidden md:block  " >
+  <div class="max-w-screen-md flex flex-wrap items-center justify-between mx-auto p-1">
+    <h1  class="flex items-center space-x-4 rtl:space-x-reverse text-textblack  font-bold text-2xl ">
+
+     <span class="text-2xl font-bold text-primary" >24-</span>Hour Service
+    </h1>
+
+    <div class="w-full md:block md:w-auto  " >
+      <ul
+    class="flex space-x-3 rtl:space-x-reverse items-center   justify-center "
+  >
+    <li>
+      <a
+        href="#"
+        class="w-9 h-9 flex items-center justify-center rounded-full bg-primary hover:bg-white/10 hover:text-primary text-white    shadow-md transition-all duration-300 "
+      >
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#"
+        class="w-9 h-9 flex items-center justify-center rounded-full bg-primary hover:bg-white/10 hover:text-primary text-white shadow-md transition-all duration-300 "
+      >
+        <i class="fa-brands fa-tiktok  "></i>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#"
+        class="w-9 h-9 flex items-center justify-center rounded-full bg-primary hover:bg-white/10 hover:text-primary text-white    shadow-md transition-all duration-300 "
+      >
+        <i class="fa-brands fa-yelp  "></i>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#"
+        class="w-9 h-9 flex items-center justify-center rounded-full   bg-primary hover:bg-white/10 hover:text-primary text-white shadow-md transition-all duration-300 "
+      >
+        <i class="fa-solid fa-thumbtack"></i>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href="#"
+        class="w-50 h-9 flex items-center justify-center rounded-full bg-primary hover:bg-white/10 hover:text-primary text-white   shadow-md transition-all duration-300 "
+      >
+        <i class="fa-solid fa-phone"></i>
+        <span class="ms-2">+1 (317) 943-9599</span>
+      </a>
+    </li>
+  </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+

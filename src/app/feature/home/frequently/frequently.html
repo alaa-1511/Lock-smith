@@ -1,0 +1,214 @@
+
+
+
+  <section class="bg-backgroundthere pb-5">
+  <div class="container mx-auto">
+    <div class="text-center ">
+
+        <div class="  line mt-10 mb-3  ">
+    <h2 class=" text-2xl  "> Frequently Asked Questions </h2>
+  </div>
+    </div>
+
+    <div class="mb-5 text-center text-black lg:text-lg  sm:text-sm ">
+      <p>
+        Find quick and clear answers to the most common questions about our professional car locksmith services, payments, and friendly customer support.
+      </p>
+    </div>
+
+
+    <div class="bg-white rounded-2xl pb-2 py-4 mb-5" data-aos="fade-up" >
+      <div class="flex justify-between items-center px-2 py-1 cursor-pointer" (click)="toggle(q1)">
+        <h6 class="font-medium">How long does it take for a technician to arrive?</h6>
+        <i class="fas text-primary  " [ngClass]="q1() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+      @if (q1()) {
+        <p class="px-2 pt-3 pb-1 leading-[150%] border-t border-background text-[16px] text-textslide">
+          Our average response time is 15–20 minutes, depending on your location and traffic conditions.
+        </p>
+      }
+    </div>
+
+
+    <div class="bg-white rounded-2xl pb-2 py-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex justify-between items-center px-2 py-1 cursor-pointer" (click)="toggle(q2)">
+        <h6 class="font-medium">What if I lost my car key completely?</h6>
+        <i class="fas text-primary  " [ngClass]="q2() ? 'fa-minus ' : 'fa-plus'"></i>
+      </div>
+      @if (q2()) {
+        <p class="px-2 pt-3 pb-1 leading-[150%] border-t border-background text-[16px] text-textslide">
+          If you lose your car key completely, we can provide a replacement key or help you unlock your car safely.
+        </p>
+      }
+    </div>
+
+
+    <div class="bg-white rounded-2xl pb-2 py-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+      <div class="flex justify-between items-center px-2 py-1 cursor-pointer" (click)="toggle(q3)">
+        <h6 class="font-medium">Will unlocking my car damage the door or lock?</h6>
+        <i class="fas text-primary" [ngClass]="q3() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+      @if (q3()) {
+        <p class="px-2 pt-3 pb-1 leading-[150%] border-t border-background text-[16px] text-textslide">
+          No, our technicians use professional tools to ensure your vehicle remains undamaged.
+        </p>
+      }
+    </div>
+
+
+    <div class="bg-white rounded-2xl pb-2 py-4 mb-5" data-aos="fade-up" data-aos-delay="300">
+      <div class="flex justify-between items-center px-2 py-1 cursor-pointer" (click)="toggle(q4)">
+        <h6 class="font-medium">How can I track my technician?</h6>
+        <i class="fas text-primary" [ngClass]="q4() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+      @if (q4()) {
+        <p class="px-2 pt-3 pb-1 leading-[150%] border-t border-background text-[16px] text-textslide">
+          You can track your technician in real time via our service tracking feature.
+        </p>
+      }
+    </div>
+
+
+    <div class="bg-white rounded-2xl pb-2 py-4 mb-5" data-aos="fade-up" data-aos-delay="400">
+      <div class="flex justify-between items-center px-2 py-1 cursor-pointer" (click)="toggle(q5)">
+        <h6 class="font-medium">What payment methods do you accept?</h6>
+        <i class="fas text-primary" [ngClass]="q5() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+      @if (q5()) {
+        <p class="px-2 pt-3 pb-1 leading-[150%] border-t border-background text-[16px] text-textslide">
+          We accept cash, credit/debit cards, and digital payment options.
+        </p>
+      }
+    </div>
+
+
+    <div class="bg-white rounded-2xl pb-2 py-4 mb-5" data-aos="fade-up" data-aos-delay="400">
+      <div class="flex justify-between items-center px-2 py-1 cursor-pointer" (click)="toggle(q6)">
+        <h6 class="font-medium">What happens if I’m not satisfied with the service?</h6>
+        <i class="fas text-primary" [ngClass]="q6() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+      @if (q6()) {
+        <p class="px-2 pt-3 pb-1 leading-[150%] border-t border-background text-[16px] text-textslide">
+          We offer a satisfaction guarantee — if you’re not happy, we’ll make it right.
+        </p>
+      }
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="bg-backgroundthere py-10">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <div class="text-center mb-6" data-aos="fade-down">
+      <div class="line mt-5 mb-3"></div>
+      <h2 class="text-2xl md:text-3xl font-bold">Frequently Asked Questions</h2>
+    </div>
+
+
+    <p class="text-center text-black/80 mb-10 text-sm md:text-base max-w-2xl mx-auto">
+      Find quick and clear answers to the most common questions about our professional car locksmith services, payments, and friendly customer support.
+    </p>
+
+
+    <div
+      class="bg-white rounded-xl p-4 mb-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+      (click)="toggle(q1)" data-aos="fade-up">
+
+      <div class="flex justify-between items-center">
+        <h6 class="font-medium text-base md:text-lg">How long does it take for a technician to arrive?</h6>
+        <i class="fas text-primary" [ngClass]="q1() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      @if (q1()) {
+        <p class="pt-3 text-[15px] text-gray-600 leading-relaxed border-t mt-2">
+          Our average response time is 15–20 minutes, depending on your location and traffic conditions.
+        </p>
+      }
+    </div>
+
+    <div
+      class="bg-white rounded-xl p-4 mb-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+      (click)="toggle(q2)" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="flex justify-between items-center">
+        <h6 class="font-medium text-base md:text-lg">What if I lost my car key completely?</h6>
+        <i class="fas text-primary" [ngClass]="q2() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      @if (q2()) {
+        <p class="pt-3 text-[15px] text-gray-600 leading-relaxed border-t mt-2">
+          If you lose your car key completely, we can provide a replacement key or help you unlock your car safely.
+        </p>
+      }
+    </div>
+
+    <div
+      class="bg-white rounded-xl p-4 mb-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+      (click)="toggle(q3)" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="flex justify-between items-center">
+        <h6 class="font-medium text-base md:text-lg">Will unlocking my car damage the door or lock?</h6>
+        <i class="fas text-primary" [ngClass]="q3() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      @if (q3()) {
+        <p class="pt-3 text-[15px] text-gray-600 leading-relaxed border-t mt-2">
+          No, our technicians use professional tools to ensure your vehicle remains undamaged.
+        </p>
+      }
+    </div>
+
+
+    <div
+      class="bg-white rounded-xl p-4 mb-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+      (click)="toggle(q4)" data-aos="fade-up" data-aos-delay="300">
+
+      <div class="flex justify-between items-center">
+        <h6 class="font-medium text-base md:text-lg">How can I track my technician?</h6>
+        <i class="fas text-primary" [ngClass]="q4() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      @if (q4()) {
+        <p class="pt-3 text-[15px] text-gray-600 leading-relaxed border-t mt-2">
+          You can track your technician in real time via our service tracking feature.
+        </p>
+      }
+    </div>
+
+
+    <div
+      class="bg-white rounded-xl p-4 mb-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+      (click)="toggle(q5)" data-aos="fade-up" data-aos-delay="400">
+
+      <div class="flex justify-between items-center">
+        <h6 class="font-medium text-base md:text-lg">What payment methods do you accept?</h6>
+        <i class="fas text-primary" [ngClass]="q5() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      @if (q5()) {
+        <p class="pt-3 text-[15px] text-gray-600 leading-relaxed border-t mt-2">
+          We accept cash, credit/debit cards, and digital payment options.
+        </p>
+      }
+    </div>
+
+
+    <div
+      class="bg-white rounded-xl p-4 mb-4 shadow-sm hover:shadow-md transition-all cursor-pointer"
+      (click)="toggle(q6)" data-aos="fade-up" data-aos-delay="500">
+
+      <div class="flex justify-between items-center">
+        <h6 class="font-medium text-base md:text-lg">What happens if I’m not satisfied with the service?</h6>
+        <i class="fas text-primary" [ngClass]="q6() ? 'fa-minus' : 'fa-plus'"></i>
+      </div>
+
+      @if (q6()) {
+        <p class="pt-3 text-[15px] text-gray-600 leading-relaxed border-t mt-2">
+          We offer a satisfaction guarantee — if you’re not happy, we’ll make it right.
+        </p>
+      }
+    </div>
+
+  </div>
+</section> -->

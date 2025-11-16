@@ -1,0 +1,23 @@
+
+
+
+
+/* 
+.bg-backgroundBlack2::before{
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/choose.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top 80% ;
+  transform: rotatex(180deg);
+  z-index: 1;
+  opacity: 0.25;
+} */
+
+
+

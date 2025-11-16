@@ -1,0 +1,412 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+@theme{
+
+  /* --color-primary:#FB923C; */
+  /* --color-primary:#FFB02B; */
+  --color-primary:#f89e34;
+  --color-primary2:#ffb24a;
+
+
+  --color-primarytwo:#F1E7D6;
+  --color-primarytwoo:#51432C;
+
+  --color-primarythere:#F4B344;
+  --color-secondary:#FFF9EB;
+  --color-textone:#1E1E1E;
+  --color-texttwo:#595959;
+  --color-textthere:#E9E9E9;
+  --color-textfour:#505050;
+  --color-textslide:#4D4D4D;
+  --color-textsix:#353535;
+  --color-textblack:#121212;
+  --color-backgroundone:#B7B7B7;
+  --color-background:#F3F3F3;
+  --color-backgroundthere:#F6F6F6;
+  --color-backgroundfour:#CBA14B33;
+  --color-backgroundBlack:#0000000D;
+  --color-backgroundBlack2:#323232;
+  --color-backgroundBlack3:#00000026;
+  --color-backgroundBlack4:#313131;
+
+  --color-start:#FFBB48;
+
+
+
+
+}
+@layer utilities {
+  .shadow-custom {
+    box-shadow: 0 0px 10px #0000000D;
+  }
+}
+
+
+
+
+*{
+
+   font-family: Inter, sans-serif;
+
+
+}
+.active-link {
+  color: var(--color-primary);
+  /* border-bottom: 1px solid var(--color-primary); */
+  transition: all 0.3s ease;
+}
+/* background dots */
+
+section.dots {
+  position: relative;
+  overflow: hidden;
+   z-index: 0
+
+}
+
+@media screen and (min-width: 1300px) {
+  .dots::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 650px;
+    height: 702px;
+    background-image: url('/background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    transform: rotate(90deg);
+    z-index: -1;
+    opacity: 0.10;
+
+  }
+
+  .dots::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 650px;
+    height: 557px;
+    background-image: url('/background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    transform: rotate(90deg);
+    z-index: -1;
+    opacity: 0.10;
+  }
+}
+
+@media screen and (max-width: 1299px) and (min-width: 769px) {
+  .dots::before,
+  .dots::after {
+    content: "";
+    position: absolute;
+    background-image: url('/background.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.08;
+    transform: rotate(90deg);
+    z-index: -1;
+  }
+
+  .dots::before {
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 400px;
+  }
+
+  .dots::after {
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dots::before,
+  .dots::after {
+    content: "";
+    position: absolute;
+    background-image: url('/background.png');
+    background-repeat: no-repeat;
+    background-size: 400px auto;
+    opacity: 0.05;
+
+    z-index: -1;
+  }
+
+  .dots::before {
+    top: 20px;
+    left: -30px;
+    width: 200px;
+    height: 250px;
+  }
+
+  .dots::after {
+    bottom: 10px;
+    right: -30px;
+    width: 200px;
+    height: 250px;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+  .center{
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+
+  .max-w-6xl{
+    width: 450px;
+    margin-block: auto;
+  }
+}
+
+/* line decoration */
+
+.line {
+  position: relative;
+  display: inline-block;
+  padding-left: 10px;
+  padding-bottom: 7px;
+  padding-top: 10px;
+}
+
+.line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2px;
+  height: 40px;
+  background-color: var(--color-primary);
+}
+
+.line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100px;
+  height: 2px;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 45px;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-primary), rgba(255, 148, 50, 0));
+}
+
+
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000B0;
+  z-index: 1;
+}
+
+.overlaybox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background-color: #2B2B2BCC;
+  border-radius: 20px;
+
+  z-index: 5;
+}
+
+.box {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+
+.owl-nav button,
+.owl-nav button:focus,
+.owl-nav button:active {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 5px !important;
+}
+
+.owl-theme .owl-nav [class*='owl-'] {
+  background: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* looooooooooooooooooooooooooooooooooooooooooooooooooo */
+
+
+
+/* .owl-theme .owl-nav {
+  position: absolute;
+  top: 50%;
+  left: -60px;
+  right: -60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-50%);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  background: #eee !important;
+  width: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+  background: var(--color-primary) !important;
+
+}
+
+
+
+ .owl-theme .owl-nav [class*='owl-'] {
+  background-color:#fff;
+  border:  1px solid var(--color-primary);
+
+  transition: all 0.5s;
+  border-radius: 50%;
+}
+@media screen and (max-width: 768px) {
+  .owl-theme .owl-nav {
+    top: 90%;
+    left: 0px;
+    right: 0px;
+  }
+
+  .owl-theme .owl-nav button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.owl-theme .owl-dots {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+ .owl-theme .owl-dots {
+  position: relative;
+  bottom: 10px;
+}
+
+ .owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background-color: var(--color-primarytwo);
+}
+
+.owl-theme .owl-nav .owl-prev {
+  background-color: transparent !important;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary) !important;
+  cursor: pointer;
+}
+
+.owl-theme .owl-nav .owl-next {
+  background-color: var(--color-primary) !important;
+  color: #ffff !important;
+  border: 2px solid var(--color-primary);
+}
+
+.owl-theme .owl-nav .owl-prev:hover {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+.owl-theme .owl-nav .owl-next:hover {
+  background-color: #fff !important;
+  color: var(--color-primary) !important;
+} */
+
+/* looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo */
